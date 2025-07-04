@@ -1,5 +1,6 @@
 package com.dn.reactnativeimage.svg
 
+import com.dn.reactnativeimage.constants.Constants
 import com.dn.reactnativeimage.enums.ResizeMode
 import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.uimanager.SimpleViewManager
@@ -8,6 +9,7 @@ import com.facebook.react.uimanager.ViewManagerDelegate
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.facebook.react.viewmanagers.SvgViewManagerInterface
 import com.facebook.react.viewmanagers.SvgViewManagerDelegate
+import java.io.File
 
 @ReactModule(name = SvgViewManager.NAME)
 class SvgViewManager : SimpleViewManager<SvgView>(),
@@ -23,6 +25,8 @@ class SvgViewManager : SimpleViewManager<SvgView>(),
   }
 
   public override fun createViewInstance(context: ThemedReactContext): SvgView {
+    val cacheDir = File(context.cacheDir, Constants.DEFAULT_SVG_CACHE_DIR)
+    SvgCacheManager.setCacheDir(cacheDir)
     return SvgView(context)
   }
 

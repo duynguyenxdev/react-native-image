@@ -1,6 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import SampleSvgXml from './SampleSvgXml';
 import Section from './Section';
+import SampleSvgUrl from './SampleSvgUrl';
 
 export default function App() {
   return (
@@ -8,7 +9,9 @@ export default function App() {
       <Section title="Load svg with xml">
         <SampleSvgXml />
       </Section>
-      <Section title="Load svg with url"></Section>
+      <Section title="Load svg with url">
+        <SampleSvgUrl />
+      </Section>
     </View>
   );
 }
